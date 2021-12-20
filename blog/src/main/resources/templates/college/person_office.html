@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${person.getName}">Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+    <section>
+        <p th:text="${person.getName()}">Name</p>
+        <p th:text="${person.getSurName()}">Surname</p>
+        <p th:text="${person.getGroup()}">Group</p>
+        <a th:href="@{/college/{id}/edit(id=${person.getId()})}">edit</a>
+        <br>
+        <br>
+        <form th:method="DELETE" th:action="@{/college/{id}(id=${person.getId()})}">
+            <input type="submit" value="Delete"/>
+        </form>
+    </section>
+    <section>
+        <h2>Today lesson</h2>
+        <div th:each="lesson : ${lessons}">
+            <p th:if="${lesson.getDayOfWeek()}==${currentDay}" th:text="${lesson.getNum()} + ') ' + ${lesson.getName()}">lesson</p>
+        </div>
+    </section>
+    <section>
+        <h2>Monday</h2>
+        <div th:each="lesson : ${lessons}">
+            <div>
+                <p th:if="${lesson.getDayOfWeek()}=='Monday'" th:text="${lesson.getNum()} + ') ' + ${lesson.getName()}">lesson</p>
+            </div>
+        </div>
+        <h2>Tuesday</h2>
+        <div th:each="lesson : ${lessons}">
+            <div>
+                <p th:if="${lesson.getDayOfWeek()}=='Tuesday'" th:text="${lesson.getNum()} + ') ' + ${lesson.getName()}">lesson</p>
+            </div>
+        </div>
+        <h2>Wednesday</h2>
+        <div th:each="lesson : ${lessons}">
+            <div>
+                <p th:if="${lesson.getDayOfWeek()}=='Wednesday'" th:text="${lesson.getNum()} + ') ' + ${lesson.getName()}">lesson</p>
+            </div>
+        </div>
+        <h2>Thursday</h2>
+        <div th:each="lesson : ${lessons}">
+            <div>
+                <p th:if="${lesson.getDayOfWeek()}=='Thursday'" th:text="${lesson.getNum()} + ') ' + ${lesson.getName()}">lesson</p>
+            </div>
+        </div>
+        <h2>Friday</h2>
+        <div th:each="lesson : ${lessons}">
+            <div>
+                <p th:if="${lesson.getDayOfWeek()}=='Friday'" th:text="${lesson.getNum()} + ') ' + ${lesson.getName()}">lesson</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

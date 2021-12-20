@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>new Person</title>
+</head>
+<body>
+    <section>
+        <form th:method="POST" th:action="@{/templates/college}" th:object="${person}">
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{name}" minlength="2">
+            <br>
+            <label for="surName">Surname</label>
+            <input type="text" id="surName" th:field="*{surName}" minlength="2">
+            <br>
+            <label for="groups">Group</label>
+            <input type="number" id="groups" th:field="*{group}" min="100" max="110">
+            <input type="submit" VALUE="create">
+        </form>
+    </section>
+</body>
+</html>

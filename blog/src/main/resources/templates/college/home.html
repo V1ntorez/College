@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link type="text/css" rel="stylesheet" href="../static/css/home.css" th:href="@{../static/css/home.css}">
+</head>
+<body>
+    <header class="header">
+        <h1>College</h1>
+        <a th:href="@{/college/new}">Create new Person</a>
+    </header>
+    <section>
+        <div th:each="person : ${people}">
+            <a th:href="@{/college/{id}(id=${person.getId()})}" th:text="${person.getName()}"></a>
+        </div>
+    </section>
+    <footer>
+        <h2>Contact</h2>
+        <p>phone +38xxxxxxxxx</p>
+        <p>Email college@org.ua</p>
+    </footer>
+</body>
+</html>
